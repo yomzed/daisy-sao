@@ -26,6 +26,7 @@ class CreateWorkshopsTable extends Migration
             $table->string('partnership')->nullable();
             $table->string('stage_name')->nullable();
             $table->string('notes')->nullable();
+            $table->string('name')->nullable();
 
             $table->unsignedInteger('level_id');
             $table->unsignedInteger('place_id')->nullable();
@@ -37,7 +38,7 @@ class CreateWorkshopsTable extends Migration
             $table->foreign('room_id')->references('id')->on('rooms')->onDelete('SET NULL');
             $table->foreign('school_year_id')->references('id')->on('school_years')->onDelete('SET NULL');
             
-            $table->unignedInteger('updated_by')->nullable();
+            $table->unsignedInteger('updated_by')->nullable();
             $table->foreign('updated_by')->references('id')->on('users')->onDelete('SET NULL');
             $table->timestamps();
         });

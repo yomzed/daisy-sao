@@ -16,7 +16,7 @@ class CreateOptionsTable extends Migration
         Schema::create('options', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('member_id');
-            $table->unisgnedInteger('workshop_id');
+            $table->unsignedInteger('workshop_id');
             $table->boolean('history')->default(false);
             $table->foreign('workshop_id')->references('id')->on('workshops')->onDelete('CASCADE');
             $table->foreign('member_id')->references('id')->on('members')->onDelete('CASCADE');

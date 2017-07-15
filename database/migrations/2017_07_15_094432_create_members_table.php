@@ -17,7 +17,7 @@ class CreateMembersTable extends Migration
             $table->increments('id');
             $table->string('firstname');
             $table->string('lastname');
-            $tabme->enum('status', ['member', 'original member', 'benefactor', 'teacher', 'interested']);
+            $table->enum('status', ['member', 'original member', 'benefactor', 'teacher', 'interested']);
             $table->enum('gender', ['M', 'F', 'O']);
             $table->date('birthdate')->nullable();
             
@@ -46,7 +46,7 @@ class CreateMembersTable extends Migration
             $table->unsignedInteger('family_id')->nullable();
             $table->foreign('family_id')->references('id')->on('families')->onDelete('SET NULL');
 
-            $table->unignedInteger('updated_by')->nullable();
+            $table->unsignedInteger('updated_by')->nullable();
             $table->foreign('updated_by')->references('id')->on('users')->onDelete('SET NULL');
 
             $table->timestamps();
